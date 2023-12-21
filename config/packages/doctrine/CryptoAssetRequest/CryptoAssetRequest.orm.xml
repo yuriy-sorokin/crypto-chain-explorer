@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity
+            name="App\Domain\CryptoAssetRequest\Model\CryptoAssetRequest"
+            repository-class="App\Domain\CryptoAssetRequest\Repository\CryptoAssetRequestRepository"
+            read-only="true">
+        <id column="id" name="id" type="integer">
+            <generator strategy="AUTO"/>
+            <options>
+                <option name="unsigned">true</option>
+            </options>
+        </id>
+
+        <field column="address" name="address" type="string" nullable="false" />
+        <field column="date_from" name="dateFrom" type="date" nullable="false" />
+        <field column="date_to" name="dateTo" type="date" nullable="false" />
+        <field column="threshold" name="threshold" type="integer" nullable="false">
+            <options>
+                <option name="unsigned">true</option>
+            </options>
+        </field>
+        <field column="unique_context" name="uniqueContext" type="string" nullable="false" unique="true" />
+
+        <many-to-one
+                field="cryptoAsset"
+                target-entity="App\Domain\CryptoAsset\Model\CryptoAsset">
+            <join-column referenced-column-name="abbreviation" nullable="false"/>
+        </many-to-one>
+    </entity>
+
+</doctrine-mapping>
