@@ -10,8 +10,9 @@ with [FrankenPHP](https://frankenphp.dev) and [Caddy](https://caddyserver.com/) 
 1. If not already done, [install Docker Compose](https://docs.docker.com/compose/install/) (v2.10+)
 2. Run `docker compose build --no-cache` to build fresh images
 3. Run `docker compose up --pull always -d --wait` to start the project
-4. Open `https://localhost` in your favorite web browser and [accept the auto-generated TLS certificate](https://stackoverflow.com/a/15076602/1352334)
-5. Run `docker compose down --remove-orphans` to stop the Docker containers.
+4. Run `docker exec -it crypto-chain-explorer-php-1 sh -c 'bin/console do:mi:mi -n'` 
+5. Run `docker exec -it crypto-chain-explorer-php-1 sh -c 'bin/console app:get-crypto-asset -a btc -d 1DEP8i3QJCsomS4BSMY2RpU1upv62aGvhD -f 2015-12-01 -t 2023-12-10 -r 5'`
+
 
 ## Features
 
