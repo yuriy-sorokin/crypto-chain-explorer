@@ -9,7 +9,7 @@ use Symfony\Component\Lock\SharedLockInterface;
 
 class Lock
 {
-    private readonly ?SharedLockInterface $lock;
+    private ?SharedLockInterface $lock;
     public function __construct(private readonly LockFactory $lockFactory) {}
 
     public function acquire(string $key): bool

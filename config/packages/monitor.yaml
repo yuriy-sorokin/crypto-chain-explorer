@@ -1,0 +1,16 @@
+liip_monitor:
+    enable_controller: false
+    checks:
+        groups:
+            default:
+                disk_usage:
+                    warning:              70
+                    critical:             90
+                    path:                 '%kernel.cache_dir%'
+                http_service:
+                    BlockCypher:
+                        host:                 api.blockcypher.com
+                        port:                 80
+                        path:                 /v1/btc/main
+                        status_code:          200
+                        content:              '"name": "BTC.main"'
